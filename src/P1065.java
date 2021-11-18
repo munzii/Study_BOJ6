@@ -16,13 +16,13 @@ public class P1065 {
 		for(int i=1; i<=n; i++) {
 			
 			if(100<=n) {
-				if(((n/100) - (n%100/10)) == ((n%100/10) - (n/10))) {
-					count = count+1;
+				if(((n/100) - (n%100/10)) == ((n%100/10) - (n%10))) {
+					count += 1;
 				}
 				
 			}
 			else if(n<100) {
-				count = count+1;
+				count += 1;
 			}
 		}
 		bw.write(String.valueOf(count+ "\n"));
