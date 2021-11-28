@@ -10,27 +10,38 @@ public class P1065 {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine());
-		int count=0;
-		
-		for(int i=1; i<=n; i++) {
-			
-			if(100<=n) {
-				if(((n/100) - (n%100/10)) == ((n%100/10) - (n%10))) {
-					count += 1;
-				}
-				
-			}
-			else if(n<100) {
-				count += 1;
-			}
-		}
-		bw.write(String.valueOf(count+ "\n"));
+		bw.write(String.valueOf(count(Integer.parseInt(br.readLine()))));
 		
 		br.close();
 		bw.flush();
 		bw.close();
-
+		
+	}
+	
+	public static int count(int num) {
+		int cnt = 0;
+		
+		if(num<100) {
+		return num;
+	}
+	else {
+		cnt = 99;
+		if(num==1000) {
+			num=999;
+		}
+		
+		for(int i=100; i<=num; i++) {
+			int h = i/100;
+			int t = (i/10)%10;
+			int o = i%10;
+			
+			if((h-t)==(t-o)) {
+				cnt++;
+			}
+		}
+	}
+		return cnt;
+		
 	}
 
 }
